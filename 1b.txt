@@ -1,0 +1,213 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Page</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+  />
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+  <div class="card p-4 shadow">
+
+    <h2 class="text-center mb-4">User Registration</h2>
+
+    <form id="registerForm">
+
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="name" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="username" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" id="phone" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" id="city" class="form-control" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">
+        Register
+      </button>
+
+      <a href="list.html" class="btn btn-success btn-block">
+        View Registered Users
+      </a>
+
+    </form>
+
+  </div>
+
+</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
+
+index.js
+let form = document.getElementById("registerForm");
+
+form.addEventListener("submit", function (e) {
+
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const city = document.getElementById("city").value;
+
+  let userObject = {
+    name,
+    username,
+    email,
+    phone,
+    address: {
+      city: city,
+    },
+  };
+
+  // AJAX POST REQUEST
+  let xhr = new XMLHttpRequest();
+
+  xhr.open("POST", "https://jsonplaceholder.typicode.com/users");
+
+  xhr.setRequestHeader(
+    "Content-type",
+    "application/json; charset=UTF-8"
+  );
+
+  xhr.send(JSON.stringify(userObject));
+
+  xhr.onload = function () {
+
+    if (xhr.status == 201) {
+
+      // Get existing users
+      let users =
+        JSON.parse(localStorage.getItem("users")) || [];
+
+      // Add new user
+      users.push(userObject);
+
+      // Save again
+      localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+      );
+
+      alert("User Registered Successfully");
+
+      // Clear form
+      form.reset();
+
+      // Redirect to list page
+      window.location.href = "list.html";
+    }
+  };
+});
+
+list.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registered Users</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+  />
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+  <h2 class="text-center mb-4">
+    Registered Candidates
+  </h2>
+
+  <a href="index.html" class="btn btn-primary mb-3">
+    Add New User
+  </a>
+
+  <table class="table table-bordered table-striped">
+
+    <thead class="thead-dark">
+
+      <tr>
+        <th>Sr No</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>City</th>
+      </tr>
+
+    </thead>
+
+    <tbody id="tbody"></tbody>
+
+  </table>
+
+</div>
+
+<script src="list.js"></script>
+
+</body>
+</html>
+
+list.js
+function displayUsers() {
+
+  let users =
+    JSON.parse(localStorage.getItem("users")) || [];
+
+  let tbody = document.getElementById("tbody");
+
+  tbody.innerHTML = "";
+
+  users.forEach((user, index) => {
+
+    tbody.innerHTML += `
+
+      <tr>
+        <td>${index + 1}</td>
+        <td>${user.name}</td>
+        <td>${user.username}</td>
+        <td>${user.email}</td>
+        <td>${user.phone}</td>
+        <td>${user.address.city}</td>
+      </tr>
+
+    `;
+  });
+}
+
+displayUsers();
+
+//localStorage.removeItem("users");

@@ -1,0 +1,223 @@
+Aboutus.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+<div data-role="page" id="about">
+
+    <div data-role="header" data-theme="b">
+        <h1>About Us</h1>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html" class="ui-btn-active">About</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="content">
+        <center>
+            <h2>Who We Are</h2>
+            <p>
+                We are a simple image store website built using jQuery Mobile.
+                Our goal is to provide a clean and responsive mobile experience.
+            </p>
+
+            <h3>Our Mission</h3>
+            <p>To deliver simple and fast mobile web applications.</p>
+        </center>
+    </div>
+
+</div>
+
+</body>
+</html>
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+<div data-role="page" id="home">
+
+    <!-- Header -->
+    <div data-role="header" data-theme="b">
+        <h1>Image Store</h1>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="home.html" class="ui-btn-active">Home</a></li>
+                <li><a href="Aboutus.html">About</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div data-role="content">
+        <center>
+            <h2>Welcome to Website</h2>
+
+            <p>This is a simple jQuery Mobile frontend page.</p>
+
+            <img src="abc.jpg" width="200" height="200"><br><br>
+            <img src="abc.jpg" width="200" height="200"><br><br>
+            <img src="abc.jpg" width="200" height="200"><br><br>
+        </center>
+    </div>
+
+    <!-- Footer -->
+    <div data-role="footer" data-theme="b">
+        <center>
+                <li><a href="home.html" class="ui-btn-active">Home</a></li>
+                <li><a href="Aboutus.html">About</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            <p>© 2026 Image Store</p>
+        </center>
+    </div>
+
+</div>
+
+</body>
+</html>
+login.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+<div data-role="page" id="login">
+
+    <div data-role="header" data-theme="b">
+        <h1>Login</h1>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html" class="ui-btn-active">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="content">
+        <center>
+
+            <h2>User Login</h2>
+
+            <label>Email</label>
+            <input type="email" placeholder="Enter Email">
+
+            <label>Password</label>
+            <input type="password" placeholder="Enter Password">
+
+            <a href="index.html" data-role="button" data-theme="b">
+                Login
+            </a>
+
+        </center>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+registre.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+<div data-role="page" id="register">
+
+    <!-- Header -->
+    <div data-role="header" data-theme="b">
+        <h1>Register</h1>
+
+        <div data-role="navbar" data-grid="c">
+            <ul>
+                <li><a href="register.html" class="ui-btn-active">Register</a></li>
+                <li><a href="home.html">Home</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div data-role="content">
+        <center>
+
+            <h2>Create Account</h2>
+
+            <label>Name</label>
+            <input type="text" placeholder="Enter Name">
+
+            <label>Email</label>
+            <input type="email" placeholder="Enter Email">
+
+            <label>Password</label>
+            <input type="password" placeholder="Enter Password">
+
+            <a href="index.html" data-role="button" data-theme="b">
+                Register
+            </a>
+
+        </center>
+    </div>
+
+    <!-- Footer -->
+    <div data-role="footer" data-theme="b">
+        <center>
+            <h3>Quick Links</h3>
+            <a href="register.html">Register</a><br>
+            <a href="home.html">Home</a><br>
+        </center>
+    </div>
+
+</div>
+
+</body>
+</html>
